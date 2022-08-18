@@ -22,13 +22,25 @@ const circle = require('../src/circle');
 */
 
 describe('4 - Implemente os casos de teste para a função `circle`', () => {
-  it('Verifica se ao receber um raio, a função `circle` retorna um objeto contendo os valores esperados', () => {
+  it('Verifica se a função `circle` ao receber um parametro que não é numero retorna `undefined`', () => {
     expect(circle('')).toBe(undefined);
+  });
+  it('Verifica se a função `circle`ao receber um numero retorna um objeto', () => {
     expect(typeof circle(1)).toBe('object');
-    expect(Object.keys(circle(3)).length).toEqual(3);
+  });
+  it('Verifica se a função `circle`ao receber um numero retorna um objeto com 3 propriedades', () => {
+    expect(Object.keys(circle(5)).length).toEqual(3);
+  });
+  it('Verifica se a função `circle` ao não receber um numero retorna `undefined`', () => {
     expect(circle()).toBe(undefined);
+  });
+  it('Verifica se dentro do objeto retornado, a função retorna uma `key` com `value` igual à circunferência correta para um círculo de raio 2', () => {
     expect(circle(2).circumference).toEqual(12.56);
+  });
+  it('Verifica se dentro do objeto retornado, a função retorna uma `key` com `value` igual à área correta para um círculo de raio 3', () => {
     expect(circle(3).area).toEqual(28.259999999999998);
+  });
+  it('Verifica se a função retorna, em um objeto, os dados corretos de um círculo de raio 3', () => {
     expect(circle(3)).toEqual({ radius: 3, area: 28.259999999999998, circumference: 18.84 });
   });
 });
